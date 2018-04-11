@@ -10,6 +10,9 @@ var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
 
+// for use to make dynamic controller 
+var fs = require('fs');
+
 //
 // ## SimpleServer `SimpleServer(obj)`
 //
@@ -20,10 +23,27 @@ var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
 
-router.use(express.static(path.resolve(__dirname, 'client')));
+router.use(express.static(path.resolve(__dirname, 'client/html')));
 var messages = [];
 var sockets = [];
 
+// set view path and use jade template
+router.set('views', path.resolve(__dirname, 'client/Views'));
+router.set('view engine', 'jade');
+
+// set static path for picture and css 
+router.use('/pic', express.static(path.join(__dirname, 'client/Static/pic')));
+router.use('/css', express.static(path.join(__dirname, 'client/Static/css')));
+
+// dynamically include routes (Controller)
+fs.readdirSync(path.resolve(__dirname, 'client/Controllers')).forEach(function (file) {
+  if(file.substr(-3) == '.js') {
+      route = require(path.resolve(__dirname, 'client/Controllers') + '/' + file);
+      route.controller(router);
+  }
+});
+
+// other for C9 
 io.on('connection', function (socket) {
     messages.forEach(function (data) {
       socket.emit('message', data);
@@ -78,7 +98,11 @@ function broadcast(event, data) {
   });
 }
 
+
+// open server
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
+  
 });
+
