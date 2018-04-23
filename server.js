@@ -34,6 +34,9 @@ router.set('view engine', 'jade');
 // set static path for picture and css 
 router.use('/pic', express.static(path.join(__dirname, 'client/Static/pic')));
 router.use('/css', express.static(path.join(__dirname, 'client/Static/css')));
+router.use('/js', express.static(path.join(__dirname, 'client/js')));
+
+
 
 // dynamically include routes (Controller)
 fs.readdirSync(path.resolve(__dirname, 'client/Controllers')).forEach(function (file) {
@@ -103,6 +106,15 @@ function broadcast(event, data) {
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   var addr = server.address();
   console.log("Chat server listening at", addr.address + ":" + addr.port);
-  
 });
 
+
+exports.listen = function () { server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+  var addr = server.address();
+  console.log("Chat server listening at", addr.address + ":" + addr.port);
+}) }
+
+exports.close = function (callback) {
+  server.close(callback);
+  console.log("close complete");
+};
