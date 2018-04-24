@@ -6,19 +6,39 @@ var con = mysql.createConnection({
      database : "WeCanEat"
 });
 
+/*
+con.connect(function(err) {
+  if (err) console.log(err);
+  console.log("Connected!");
+  var sql = `SELECT * FROM Business`;
+  con.query(sql, function (err, result) {
+     if (err) console.log(err);
+     console.log(result);
+     console.log("Complete");
+   });
+});
+*/
+
 //////////////////////////////////////////////////
 //   HOW  Another  js use ?                     // 
 // 1 . var models = require('this file path');  //
 // 2 . models.function(arg);                    //
 //////////////////////////////////////////////////
-
+//con.connect(function() {
   module.exports = {
-          /* FIND ALL BUSINESS  */
           getAllBusiness : function(callback){ 
+              console.log("Tag Table Complete");
+              //con.connect(function(err) {
+              //  if (err) console.log(err);
+              //  console.log("Connected database !");
                 con.query("SELECT * FROM Business", function (err, result) {
                    if (err) console.log(err);
+                   console.log(result);
+                   console.log("Complete query");
                    callback(result);
-                });
+                 });
+              //}//); 
+              //con.end();
           },
           
           getSpecificBusiness : function(callback, bsID){
@@ -28,10 +48,19 @@ var con = mysql.createConnection({
           },
           
           getAllTypes : function(callback){
-                con.query("SELECT * FROM __Type", function (err, result) {
-                   if (err) console.log(err);
-                   callback(result);
-                });
+          //    console.log("Tag Table Complete");
+          //    var query = "SELECT * FROM __Type";
+          //    con.connect(function(err) {
+          //      if (err) throw err;
+          //      console.log("Connected database !");
+          //      con.query(query, function (err, result) {
+          //         if (err) console.log(err);
+          //         console.log(result);
+          //         console.log("Complete query");
+          //         return result;
+          //       });
+          //    });
+            return ;
           },
           
           getAllBusinessWithType : function(callback, typeID){
@@ -81,3 +110,7 @@ var con = mysql.createConnection({
           },
     
   }
+//});
+
+
+// ** ยังไม่ได้ลองใดๆ ทั้งนั้น แค่เขียนที่คิดว่า น่าจะต้องทำ

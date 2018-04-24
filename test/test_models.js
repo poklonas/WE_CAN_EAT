@@ -38,11 +38,11 @@ describe('models', function () {
     
     describe('insert new data', function() {
         it("should insert the valid data to database", function(done) {
-                    done();
+            done();
          });
         
         it("insert should be right insert", function(done) {
-                    done();
+            done();
          });
          
     });

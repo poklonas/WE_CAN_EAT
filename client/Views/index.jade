@@ -3,32 +3,50 @@ html
     head
         title Home page
         script(src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyDZnZZrP9Dcq5WiodTFYbXFRMc-pY9DNqo&callback=initMap")
-        link(href='/css/style1.css', rel='stylesheet')
+        link(href='/css/just_test.css', rel='stylesheet')
         style(type="text/css").
            #map {
                 height: 800px;
                 width: 100%;
             }
     body
+        //each item in TypeList
+        //    li=item._Type
         ul
          div.logo
            img(src='/pic/pizza.png')
            a(href='https://what-we-eat-buntun.c9users.io') WE CAN EAT
      
-        div.nav 
-         ul
-          li
-             a(href='https://what-we-eat-buntun.c9users.io/') Home
-          li
-             a(href='#news') News
-          li
-             a(href='#contact') Contact
-          li
-             a(href='#about') About
-        br    
+        .navbar
+          a(href='https://what-we-eat-buntun.c9users.io') Home
+          a(href='#about') About us
+          
+          .dropdown
+            button.dropbtn(onclick='myFunction()')
+              | Food's Type
+              i.fa.fa-caret-down
+            #myDropdown.dropdown-content
+                each item in TypeList
+                    a(href='detail/#{item.ID}') #{item._Type}
+
+
+          
+        
+        br
         div(id="map")
             script(src= "/js/map_setting.js")
             script(src= "/js/map_style.js")
             script(src= "/js/map.js")
 
-        
+    script.
+      function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+      }
+      window.onclick = function(e) {
+      if (!e.target.matches('.dropbtn')) {
+      var myDropdown = document.getElementById("myDropdown");
+      if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+      }
+      }
+      }

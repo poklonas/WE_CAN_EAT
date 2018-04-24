@@ -5,7 +5,7 @@ CREATE TABLE Business (
                 Picture varchar(100) not null ,
                 Latitude float(10,2),
                 Longitude float(10,2),
-                -- _Type varchar(100)
+                _Type varchar(100)
                 );
 
 CREATE TABLE BUSI_FOOD (
