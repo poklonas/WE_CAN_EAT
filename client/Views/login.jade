@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+        title Detail Page
+        link(href='/css/just_test.css', rel='stylesheet')
+        style(type="text/css").
+    body
+        ul
+         div.logo
+           img(src='/pic/pizza.png')
+           a(href='/') WE CAN EAT
+     
+        .navbar
+          a(href='/') Home
+          a(href='/about_us') About us
+          a(href='/all/food') All Food
+          a(href='/add/food') Add Food
+          a(href='/all/business') ALL Business
+        
+        br 
+        br 
+        br 
+        br 
+        br 
+        h1 LOGIN 
+        -if (message)
+          #alert
+            p= message
+     div
+        form(action='/admin/login', method="post")
+            div.input
+                span.label EMAIL
+                br
+                input(type="text", name="email")
+            div.input
+                span.label Password
+                br
+                input(type="text", name="password")
+            div.actions
+                br
+                input(type="submit", value="login")

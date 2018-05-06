@@ -1,41 +1,104 @@
-doctype html
-html
-    head
-        title Detail Page
-        link(href='/css/just_test.css', rel='stylesheet')
-        style(type="text/css").
-    body
-        ul
-         div.logo
-           img(src='/pic/pizza.png')
-           a(href='/') WE CAN EAT
-     
-        .navbar
-          a(href='/') Home
-          a(href='/about_us') About us
-          a(href='/all/food') All Food
-          a(href='/add/food') Add Food
-          a(href='/all/business') ALL Business
+extends ./layout.jade
+
+block title
+  title Add Business
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZnZZrP9Dcq5WiodTFYbXFRMc-pY9DNqo&callback=initMap")
+  script(src="/js/geolocation-marker.js")
+  link(href='/css/style1.css', rel='stylesheet')
+  style(type="text/css").
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+
+block navbar
+  a.right(onclick="showPositon()") 
+    img(src="https://png.icons8.com/ios/50/bdc3c7/define-location-filled.png")
+    
+block content
+  div.detail
+    h1 Add Business
+    form(action='/add/busi', method="post")
+      div.input
+          span.label Business Name 
+          br
+          input(type="text", name="name", id="Bname")
+      div.input
+          span.label Pic NAME 
+          br
+          input(type="text", name="pic")
+      div.input
+          span.label Lat 
+          br
+          input(type="text", name="lat", id="inputLat", 
+                onkeypress="changeLat(this.value);")
+      div.input
+          span.label Lag 
+          br
+          input(type="text", name="lng", id="inputLng",
+                onkeypress="changeLng(this.value);")
+      div.actions
+          br
+          input(type="submit", value="ADD")
+  div.map(id='location')
+    h2 Location
+    div(id="map")
+      script(src="/js/map_setting.js")
+      script(src="/js/map_style.js")
+      script(src="/js/map.js")
+      script(type='text/javascript').
+        maps = initMap();
+        initPointMarker();
+  center
+    // h2 Menu
+    // table(id="SortTable")
+    //   tr
+    //     th(onclick="sortTable(0)") Name
+    //     th(onclick="sortTable(1)") Price
+    //   each item in menu
+    //     tr
+    //       td=item.Name
+    //       td #{item.price} Baht 
           
-        h1 ADD Busi
-     div
-        form(action='/add/busi', method="post")
-            div.input
-                span.label Busi NAME 
-                br
-                input(type="text", name="name")
-            div.input
-                span.label Pic NAME 
-                br
-                input(type="text", name="pic")
-            div.input
-                span.label Lat NAME 
-                br
-                input(type="text", name="lat")
-            div.input
-                span.label Long NAME 
-                br
-                input(type="text", name="Long")
-            div.actions
-                br
-                input(type="submit", value="ADD")
+
+// doctype html
+// html
+//     head
+//         title Detail Page
+//         link(href='/css/just_test.css', rel='stylesheet')
+//         style(type="text/css").
+//     body
+//         ul
+//          div.logo
+//           img(src='/pic/pizza.png')
+//           a(href='/') WE CAN EAT
+     
+//         .navbar
+//           a(href='/') Home
+//           a(href='/about_us') About us
+//           a(href='/all/food') All Food
+//           a(href='/add/food') Add Food
+//           a(href='/all/business') ALL Business
+          
+//         h1 ADD Busi
+//      div
+//         form(action='/add/busi', method="post")
+//             div.input
+//                 span.label Busi NAME 
+//                 br
+//                 input(type="text", name="name")
+//             div.input
+//                 span.label Pic NAME 
+//                 br
+//                 input(type="text", name="pic")
+//             div.input
+//                 span.label Lat NAME 
+//                 br
+//                 input(type="text", name="lat")
+//             div.input
+//                 span.label Long NAME 
+//                 br
+//                 input(type="text", name="Long")
+//             div.actions
+//                 br
+//                 input(type="submit", value="ADD")

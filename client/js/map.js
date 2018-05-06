@@ -22,7 +22,7 @@ var icon = {
 };
 
 var infowindow = new google.maps.InfoWindow();
-var marker, i;
+var marker, dmarker, i;
 var markers = [];
 
 function initMarker() {
@@ -46,10 +46,42 @@ function initMarker() {
   }
 }
 
-var hiddenType = []
-function filterMark(elmnt,tid) {
-  for (var i = 0; i < hiddenType.length; i++) {
-    if (tid == hiddenType[i]) {
+function initPointMarker() {
+  dmarker = new google.maps.Marker({
+    position: {lat: 13.8218835, lng: 100.5145678},
+    draggable: true,
+    map: maps,
+    icon: icon,
+    title: "Business Location"});
+  google.maps.event.addListener(dmarker, 'dragend', (function(dmarker) {
+    return function() {
+      var pos = dmarker.getPosition();
+      document.getElementById("inputLat").value = pos.lat();
+      document.getElementById("inputLng").value = pos.lng();
+    }
+  })(dmarker));
+}
+
+function changeLat(lat){
+  var pos = new google.maps.LatLng(Number(lat), dmarker.getPosition().lng());
+  dmarker.setPosition(pos);
+}
+
+function changeLng(lat){
+  var pos = new google.maps.LatLng(dmarker.getPosition().lat(), Number(lat));
+  dmarker.setPosition(pos);
+}
+
+function getLatLng(marker){
+  var pos = marker.getPosition();
+  document.getElementById("inputLat").value = pos.lat;
+  document.getElementById("inputLng").value = pos.lng;
+}
+
+var hiddenType = new Set();
+function filterMark(tid) {
+  for (var i = 0; i < hiddenType.size; i++) {
+    if (hiddenType.has(tid)) {
       showType(tid);
       return
     }
@@ -58,7 +90,7 @@ function filterMark(elmnt,tid) {
 }
 
 function showType(tid){
-  hiddenType.pop(tid);
+  hiddenType.delete(tid);
   for (var i = 0; i < markers.length; i++) {
     if (BUSIList[i].TypeID == tid)
       markers[i].setMap(maps);
@@ -69,7 +101,7 @@ function showType(tid){
 }
 
 function hideType(tid){
-  hiddenType.push(tid);
+  hiddenType.add(tid);
   for (var i = 0; i < markers.length; i++) {
     if (BUSIList[i].TypeID == tid)
       markers[i].setMap(null);

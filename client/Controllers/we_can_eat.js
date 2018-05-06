@@ -20,10 +20,6 @@ var mysql = require(path.resolve(__dirname, '../Models/we_can_eat.js'));
       res.render('index');
   });
   
-  router.get('/admin', function(req, res) {
-      res.render('admin.jade');
-  });
-  
   router.get('/about_us', function(req, res) {
       res.render('about_us.jade');
   });
@@ -116,10 +112,12 @@ var mysql = require(path.resolve(__dirname, '../Models/we_can_eat.js'));
 
   // create new business 
   router.post('/add/busi', function(req,res){
-    mysql.insertBusiness(function(status){
-       console.log(status);
-       res.redirect('/');
-     }, req.body);
+    // mysql.insertBusiness(function(status){
+    //   console.log(status);
+    //   res.redirect('/');
+    // }, req.body);
+    console.log(req.body);
+    res.redirect('/');
   });
 
     // form new business Type relation *********** ทำไว้แบบ manual
@@ -136,3 +134,5 @@ var mysql = require(path.resolve(__dirname, '../Models/we_can_eat.js'));
   });
 
 };
+
+

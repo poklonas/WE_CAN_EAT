@@ -19,7 +19,7 @@ block content
     - var width = 90/TypeList.length
     button(onclick="showAll()")  All
     each item in TypeList
-      button.type(onclick="filterMark(this,#{item.ID})" \
+      button.type(onclick="filterMark(#{item.ID})" \
       ,style="width:#{width}%",id="Type_#{item.ID}")= item._Type
     button(onclick="hideAll()") Clear
       

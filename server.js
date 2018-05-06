@@ -9,6 +9,9 @@ var path = require('path');
 var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
+var passport = require('passport');
+var session = require('express-session');
+var MySQLStore  = require('express-mysql-session')(session);
 var bodyParser = require('body-parser');
 
 // for use to make dynamic controller 
@@ -21,7 +24,7 @@ var fs = require('fs');
 //  * `port` - The HTTP port to listen on. If `process.env.PORT` is set, _it overrides this value_.
 //
 var router = express();
-// fix form promblem
+// fix form promblem to let asynchonus can pull value from body res
 router.use(require('connect').bodyParser());
 
 var server = http.createServer(router);
@@ -40,7 +43,29 @@ router.use('/pic', express.static(path.join(__dirname, 'client/Static/pic')));
 router.use('/css', express.static(path.join(__dirname, 'client/Static/css')));
 router.use('/js', express.static(path.join(__dirname, 'client/js')));
 
+// set session for Authen
+var options = {
+    host: 'localhost',
+    port: 3306,
+    user: 'buntun',
+    database: 'session'
+};
+ 
+var sessionStore = new MySQLStore(options);
 
+router.use(session({
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+}));
+router.use(passport.initialize());
+router.use(passport.session());
+require('./config/passport')(passport); 
+
+var flash    = require('connect-flash');
+router.use(flash());
 
 // dynamically include routes (Controller)
 fs.readdirSync(path.resolve(__dirname, 'client/Controllers')).forEach(function (file) {
