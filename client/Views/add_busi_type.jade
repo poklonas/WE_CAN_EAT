@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title Detail Page
+        link(href='/css/just_test.css', rel='stylesheet')
+        style(type="text/css").
+    body
+        ul
+         div.logo
+           img(src='/pic/pizza.png')
+           a(href='/') WE CAN EAT
+     
+        .navbar
+          a(href='/') Home
+          a(href='/about_us') About us
+          a(href='/all/food') All Food
+          a(href='/add/food') Add Food
+          a(href='/all/business') ALL Business
+          
+        h1 ADD Busi Type !!!!!!!!!! แค่ ทำมาเพื่อเพิ่มมือเท่านั้น ต้องแก้ไขให้มีการหา id แบบอัตโนมัตด้วย !!!
+     div
+        form(action='/add/busi_type', method="post")
+            div.input
+                span.label Busi ID 
+                br
+                input(type="text", name="bsID")
+            div.input
+                span.label Type ID 
+                br
+                input(type="text", name="typeID")
+            div.actions
+                br
+                input(type="submit", value="ADD")

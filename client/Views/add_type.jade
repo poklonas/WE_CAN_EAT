@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title Detail Page
+        link(href='/css/just_test.css', rel='stylesheet')
+        style(type="text/css").
+    body
+        ul
+         div.logo
+           img(src='/pic/pizza.png')
+           a(href='/') WE CAN EAT
+     
+        .navbar
+          a(href='/') Home
+          a(href='/about_us') About us
+          a(href='/all/food') All Food
+          a(href='/add/food') Add Food
+          a(href='/all/business') ALL Business
+          
+        h1 ADD Type
+     div
+        form(action='/add/type', method="post")
+            div.input
+                span.label Type NAME 
+                br
+                input(type="text", name="name")
+            div.actions
+                br
+                input(type="submit", value="ADD")

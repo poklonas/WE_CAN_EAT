@@ -3,9 +3,8 @@ CREATE TABLE Business (
                 ID int primary key auto_increment, 
                 Name varchar(100) not null , 
                 Picture varchar(100) not null ,
-                Latitude float(10,2),
-                Longitude float(10,2),
-                _Type varchar(100)
+                Latitude varchar(25) not null,
+                Longitude varchar(25) not null
                 );
 
 CREATE TABLE BUSI_FOOD (

@@ -1,110 +1,32 @@
-body {
-   margin: 0; 
-   background-size: cover;
+.background {
+    position:fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url("/pic/town2.jpg");
+    background-repeat: repeat;
+    opacity: .5;
+    height: auto;
 }
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 5px;
-    overflow: hidden;
-    background-color: #1C1C1C;
+
+div.gallery img {
+    padding:5%;
+    width: 90%;
+    border-radius: 50%;
 }
-.nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #1C1C1C;
+
+div.desc {
+    font-size:22px;
+    padding: 15px;
     text-align: center;
 }
-.nav li {
-    display: inline-block;
-    background-color: #424242;
-}
 
-.nav a{
-    text-decoration: none;
-    color:#fff;
-    width: 100px;
-    display: block;
-    padding:15px;
-    font-size: 17px;
-    font-family: Helvetica;
-    
-}
-.nav a:hover {
-    background-color: #fff;
-    transition:0.5s;
-    color:#111;
-}
-
-.logo a {
-    margin-left: 30px;
-    color:#fff;
-    font-size: 55px;
-    font-family: Impact;
-    text-decoration: none;
-}
-
-.logo img {
-    height: auto;
-    padding: 5px;
-    width: 150px;
+.responsive {
+    padding: 0 10px;
     float: left;
-}
-.picture a {
-    color:black;
-    font-size: 20px;
-    font-family: Impact;
+    width: 25%;
 }
 
-.picture img {
-    height: auto;
-    width: 200px;
-    
-}
 
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown a:hover {
-    background-color: #ddd
-    
-}
-
-.show {
-    display:block;
-    
-}

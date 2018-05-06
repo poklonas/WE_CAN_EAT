@@ -1,6 +1,6 @@
-//
+// mysql-ctl start
 // # SimpleServer
-//
+// 
 // A simple chat server using Socket.IO, Express, and Async.
 //
 var http = require('http');
@@ -9,6 +9,7 @@ var path = require('path');
 var async = require('async');
 var socketio = require('socket.io');
 var express = require('express');
+var bodyParser = require('body-parser');
 
 // for use to make dynamic controller 
 var fs = require('fs');
@@ -20,6 +21,9 @@ var fs = require('fs');
 //  * `port` - The HTTP port to listen on. If `process.env.PORT` is set, _it overrides this value_.
 //
 var router = express();
+// fix form promblem
+router.use(require('connect').bodyParser());
+
 var server = http.createServer(router);
 var io = socketio.listen(server);
 

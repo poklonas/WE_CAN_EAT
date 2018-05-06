@@ -1,5 +1,4 @@
 body {
-   margin: 0; 
    background-size: cover;
 }
 ul {
@@ -10,11 +9,15 @@ ul {
     background-color: #1C1C1C;
 }
 .navbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 68px;
     overflow: hidden;
     background-color: #333; /*  #333*/
     font-family:Arial;
+    z-index: 2;
 }
-
 .navbar a {
     float: left;
     font-size: 20px;
@@ -25,11 +28,24 @@ ul {
     font-weight:bold;
 }
 
+.navbar a.right {
+    float: right;
+    font-size: 20px;
+    color: white;
+    padding: 7px 7px;
+    text-decoration: none;
+    font-weight:bold;
+}
+
+.navbar img {
+    height: 40px;
+    width: auto;
+}
+
 .dropdown {
     float: left;
     overflow: hidden;
 }
-
 .dropdown .dropbtn {
     cursor: pointer;
     font-size: 20px;    
@@ -42,13 +58,11 @@ ul {
     margin: 0;
     font-weight:bold;
 }
-
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
     background-color: #fff;
     transition:0.5s;
     color:#111;
 }
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -57,7 +71,6 @@ ul {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-
 .dropdown-content a {
     float: none;
     color: black;
@@ -66,15 +79,22 @@ ul {
     display: block;
     text-align: left;
     font-size: 20px;
-   
 }
-
 .dropdown-content a:hover {
     background-color: #ddd;
 }
-
 .show {
     display: block;
+}
+
+.logo {
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 2;
 }
 .logo a {
     margin-left: 30px;
@@ -95,9 +115,94 @@ ul {
     font-size: 20px;
     font-family: Impact;
 }
-
 .picture img {
     height: auto;
     width: 200px;
-    
 }
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    float:right;
+}
+
+.button1 {
+    background-color: #1C1C1C; 
+    color: white; 
+    border: 3px solid #4CAF50;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th {
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.filterbar {
+    border-spacing: 0;
+    width: 100%;
+    border: None;
+    background-color: #333;
+    color: #fff;
+}
+
+.filterbar button  {
+    width: 5%;
+    height: 60px;
+    border: none;
+    float: left;
+    font-size: 15px;
+    color: white;
+    background-color: #333;
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+div.detail {
+    width: 50%;
+    float: left;
+}
+
+div.map {
+    width: 50%;
+    float: left;
+}
+
+div.content{
+    position: relative;
+    top: 120px;
+}
+
+
+

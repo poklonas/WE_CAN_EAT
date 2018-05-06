@@ -1,17 +1,49 @@
-doctype html
-html
-    head
-        title Detail Page
-        link(href='/css/just_test.css', rel='stylesheet')
-        style(type="text/css").
-    body
-        ul
-         div.logo
-           img(src='/pic/pizza.png')
-           a(href='https://what-we-eat-buntun.c9users.io') WE CAN EAT
-     
-        .navbar
-          a(href='https://what-we-eat-buntun.c9users.io') Home
-          a(href='#about') About us
-        h1 Detail for Business
-        p This is a detail 
+extends ./layout.jade
+
+block title
+  title #{BUSI[0].Name}
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZnZZrP9Dcq5WiodTFYbXFRMc-pY9DNqo&callback=initMap")
+  script(src="/js/geolocation-marker.js")
+  link(href='/css/style1.css', rel='stylesheet')
+  style(type="text/css").
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+    
+block navbar
+  a.right(onclick="showPositon()") 
+    img(src="https://png.icons8.com/ios/50/bdc3c7/define-location-filled.png")
+    
+  
+block content
+  //.background  
+  p 
+    a(href='/') Home <a /> >
+    a(href='/all/business') Business List <a /> > #{BUSI[0].Name}
+  div.detail
+    h1 #{BUSI[0].Name}
+    center
+      div.picture 
+        img(src='#{BUSI[0].Picture}')
+  div.map(id='location')
+    h2 Location
+    div(id="map")
+      script(src="/js/map_setting.js")
+      script(src="/js/map_style.js")
+      script(src="/js/map.js")
+      script(type='text/javascript').
+        var BUSIList = !{JSON.stringify(BUSI)};
+        mapOptions.center = {lat:#{BUSI[0].Latitude}, lng:#{BUSI[0].Longitude}}
+        maps = initMap();
+        initMarker();
+  center
+    h2 Menu
+    table(id="SortTable")
+      tr
+        th(onclick="sortTable(0)") Name
+        th(onclick="sortTable(1)") Price
+      each item in menu
+        tr
+          td=item.Name
+          td #{item.price} Baht 

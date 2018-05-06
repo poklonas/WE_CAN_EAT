@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title Detail Page
+        link(href='/css/just_test.css', rel='stylesheet')
+        style(type="text/css").
+    body
+        ul
+         div.logo
+           img(src='/pic/pizza.png')
+           a(href='/') WE CAN EAT
+     
+        .navbar
+          a(href='/') Home
+          a(href='/about_us') About us
+          a(href='/all/food') All Food
+          a(href='/add/food') Add Food
+          a(href='/all/business') ALL Business
+          
+        h1 ALL FOOD ARE
+        each item in food
+            div
+                  p #{item.Name} 
+                  a(href='/all_food'+  '#{item.ID}') DELETE

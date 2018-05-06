@@ -1,52 +1,53 @@
-//doctype html
-html
-    head
-        title Home page
-        script(src= "https://maps.googleapis.com/maps/api/js?key=AIzaSyDZnZZrP9Dcq5WiodTFYbXFRMc-pY9DNqo&callback=initMap")
-        link(href='/css/just_test.css', rel='stylesheet')
-        style(type="text/css").
-           #map {
-                height: 800px;
-                width: 100%;
-            }
-    body
-        //each item in TypeList
-        //    li=item._Type
-        ul
-         div.logo
-           img(src='/pic/pizza.png')
-           a(href='https://what-we-eat-buntun.c9users.io') WE CAN EAT
-     
-        .navbar
-          a(href='https://what-we-eat-buntun.c9users.io') Home
-          a(href='#about') About us
-          
-          .dropdown
-            button.dropbtn(onclick='myFunction()')
-              | Food's Type
-              i.fa.fa-caret-down
-            #myDropdown.dropdown-content
-                each item in TypeList
-                    a(href='detail/#{item.ID}') #{item._Type}
+extends ./layout.jade
 
+block title
+  title Home page
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZnZZrP9Dcq5WiodTFYbXFRMc-pY9DNqo&callback=initMap")
+  script(src="/js/geolocation-marker.js")
+  style(type="text/css").
+    #map {
+      height: 750px;
+      width: 100%;
+    }
+    
+block navbar
+  a.right(onclick="showPositon()") 
+    img(src="https://png.icons8.com/ios/50/bdc3c7/define-location-filled.png")
 
-          
-        
-        br
-        div(id="map")
-            script(src= "/js/map_setting.js")
-            script(src= "/js/map_style.js")
-            script(src= "/js/map.js")
-
-    script.
-      function myFunction() {
+block content
+  .filterbar
+    - var width = 90/TypeList.length
+    button(onclick="showAll()")  All
+    each item in TypeList
+      button.type(onclick="filterMark(this,#{item.ID})" \
+      ,style="width:#{width}%",id="Type_#{item.ID}")= item._Type
+    button(onclick="hideAll()") Clear
+      
+  div(id="map")
+    script(src="/js/map_setting.js")
+    script(src="/js/map_style.js")
+    script(src="/js/map.js")
+    script(type='text/javascript').
+      var BUSIList = !{JSON.stringify(BUSIList)};
+      var TypeList = !{JSON.stringify(TypeList)};
+      maps = initMap()
+      initMarker()
+  script.
+    // $(function() {
+    //   $(&quot;#sign-in-with-twitter&quot;).on(&quot;click&quot;, function() {
+    //   window.location.href = &quot;<some domain>/request-token&quot;;
+    //   });
+    // });
+    
+    function myFunction() {
       document.getElementById("myDropdown").classList.toggle("show");
-      }
-      window.onclick = function(e) {
+    }
+    window.onclick = function(e) {
       if (!e.target.matches('.dropbtn')) {
-      var myDropdown = document.getElementById("myDropdown");
-      if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
+        var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
       }
-      }
-      }
+    }
+    
