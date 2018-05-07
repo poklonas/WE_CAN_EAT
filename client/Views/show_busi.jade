@@ -2,7 +2,6 @@ extends ./layout.jade
 
 block title
   title Detail Page
-  //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sort_table_desc
   
 block content
   p 
@@ -14,6 +13,6 @@ block content
       th(onclick="sortTable(1)") Type
     each item in BUSIList
       tr(onclick="window.location=  \
-      'https://what-we-eat-buntun.c9users.io/detail/"+item.ID+"'")
+      'https://what-we-eat-buntun.c9users.io/detail/"+item.BusinessID+"'")
         td=item.Name
         td=item._Type

@@ -204,5 +204,23 @@ div.content{
     top: 120px;
 }
 
+div.form{
+    float:left;
+    width: 50%;
+    height: 400px;
+}
+
+div.form div.image{
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    background-color: #ddd;
+}
+
+div.form div.image img{
+    max-width: 380px;
+    max-height: 400px;
+}
+
 
 

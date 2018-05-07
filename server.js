@@ -67,6 +67,9 @@ require('./config/passport')(passport);
 var flash    = require('connect-flash');
 router.use(flash());
 
+// upload
+router.use(express.bodyParser({uploadDir: express.static(path.resolve(__dirname, 'client/Static/pic'))}));
+
 // dynamically include routes (Controller)
 fs.readdirSync(path.resolve(__dirname, 'client/Controllers')).forEach(function (file) {
   if(file.substr(-3) == '.js') {

@@ -14,7 +14,7 @@ var con = mysql.createConnection({
 
 function getAllBusiness(callback){
     //var query = "SELECT * FROM Business";
-     var query = "SELECT *\
+    var query = "SELECT *\
                   FROM Business as b \
                   INNER JOIN BUSI_Type as bt ON b.ID = bt.BusinessID \
                   INNER JOIN __Type as t ON bt.TypeID = t.ID";
@@ -90,12 +90,12 @@ function insertBusiness (callback, objBusi){
     var name = objBusi.name;
     var pic = objBusi.pic;
     var lat = objBusi.lat;
-    var long = objBusi.long;
+    var lng = objBusi.lng;
     var query = "INSERT INTO Business (Name,Picture,Latitude,Longitude) \
-                 VALUES ('"+name+"','"+pic+"','"+lat+"','"+long+"');"; 
+                 VALUES ('"+name+"','"+pic+"','"+lat+"','"+lng+"');"; 
     con.query( query, function (err, result) {
         if (err) console.log(err);
-        callback("Success");
+        callback(result);
     });
 }
 
@@ -125,6 +125,14 @@ function deleteFood(callback, id){
     });
 };
 
+function getLastId(callback){
+    var query = "SELECT LAST_INSERT_ID() as lastID;";
+    con.query( query, function (err, result) {
+        if (err) console.log(err);
+        callback(result);
+    });             
+}
+
 
 var counter = 2;
 
@@ -141,6 +149,6 @@ module.exports = {
     insertBusiType : insertBusiType,
     insertBusiness : insertBusiness,
     deleteFood : deleteFood,
-    counter: counter,
+    getLastId : getLastId
 };
 

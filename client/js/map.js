@@ -36,8 +36,8 @@ function initMarker() {
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
       return function() {
     		infowindow.setContent('<div class="picture">'+BUSIList[i].Name+'<br>\
-    		                <img src=/pic/PicBusiness/'+BUSIList[i].Picture.split('/').pop()+'>\
-    		                <a href=https://what-we-eat-buntun.c9users.io/detail/'+BUSIList[i].ID+'>detail</a>\
+    		                <img src='+BUSIList[i].Picture+'>\
+    		                <a href=https://what-we-eat-buntun.c9users.io/detail/'+BUSIList[i].BusinessID+'>detail</a>\
     		                </div>');
     		infowindow.open(maps, marker);
     		maps.panTo({lat: Number(BUSIList[i].Latitude), lng: Number(BUSIList[i].Longitude)}); 
@@ -70,6 +70,19 @@ function changeLat(lat){
 function changeLng(lat){
   var pos = new google.maps.LatLng(dmarker.getPosition().lat(), Number(lat));
   dmarker.setPosition(pos);
+}
+
+function changePos(){
+  navigator.geolocation.getCurrentPosition(markPosition);
+}
+
+function markPosition(position){
+  var pos = {lat: position.coords.latitude,
+				lng: position.coords.longitude}
+	maps.panTo(pos);
+  dmarker.setPosition(pos);
+  document.getElementById("inputLat").value = pos.lat;
+  document.getElementById("inputLng").value = pos.lng;
 }
 
 function getLatLng(marker){

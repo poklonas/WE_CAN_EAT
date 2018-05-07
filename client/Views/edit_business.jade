@@ -1,0 +1,36 @@
+extends ./layout_admin.jade
+
+block title
+  title #{BUSI[0].Name}
+
+block content
+  p 
+    a(href='/') Home <a /> >
+    a(href='/manage/business') Manage Business <a /> > #{BUSI[0].Name}
+  div.detail
+    h1 #{BUSI[0].Name}
+    input(type='text' value='#{BUSI[0].Name}')
+    p edit name
+    center
+      div.picture 
+        img(src='#{BUSI[0].Picture}')
+      form(action='/', method="get")
+        div.input
+          input(type="file", name="file", onchange="previewPicture(this.value)")
+        div.actions
+          br
+          input(type="submit", value="Update Picture")
+  center
+    h2 Menu
+      a(href='/add/menu') Add Menu
+    table(id="SortTable")
+      tr
+        th(onclick="sortTable(0)") Name
+        th(onclick="sortTable(1)") Price
+        td UNIT
+      each item in menu
+        tr
+          td=item.Name
+          td
+            input(type='text' value='#{item.price}')
+          td Bath

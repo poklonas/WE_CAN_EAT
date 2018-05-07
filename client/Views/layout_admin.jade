@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    block title
+      title Default title
+    link(href='/css/just_test.css', rel='stylesheet')
+    script(src="/js/script.js")
+    body
+        ul
+         div.logo
+           img(src='/pic/pizza.png')
+           a(href='/') WE CAN EAT
+           button.button.button1 LOGOUT
+     
+      .navbar
+          a(href='/') Home
+          a(href='/manage/food') Manage Food
+          a(href='/manage/business') Manage Business
+          a(href='/admin/logout') Logout for admin
+    
+    div.content
+      block content

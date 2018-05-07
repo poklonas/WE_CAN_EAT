@@ -1,0 +1,15 @@
+extends ./layout_admin.jade
+block title
+  title ADD MENU
+  script(src='/js/add_option.js')
+  
+block content
+  h1 ADD MENU
+  form(action='/add/menu', method="post")
+    div.input
+      span.label TEST NEW SELECT FOOD 
+      select(name="selectedFood", form="addBUSI", id="Selected") 
+        for item in food
+          option(value="#{item.ID}") #{item.Name}   
+      button(type="button", onclick="addSelectedFood()") add
+  div#selectedF

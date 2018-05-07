@@ -1,0 +1,28 @@
+extends ./layout_admin.jade
+block title
+  title Manage Business
+  
+block content
+  p 
+    a(href='/') Home <a /> > Manage Business  
+  h1 Business List   
+    a(href='/add/busi') Add Business
+  table(id="SortTable")
+    tr
+      th(onclick="sortTable(0)") Name
+      th(onclick="sortTable(1)") Latitude
+      th(onclick="sortTable(2)") Longitude
+      th(onclick="sortTable(3)") Picture
+      th(onclick="sortTable(4)") Type
+      th EDIT
+    each item in BUSIList
+      tr
+        td=item.Name
+        td=item.Latitude
+        td=item.Longitude
+        td=item.Picture
+        td=item._Type
+        td
+          form(action='/edit/busi/#{item.ID}', method="get")
+            div.input
+              input(type="submit", value="EDIT")

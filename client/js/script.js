@@ -53,3 +53,7 @@ function sortTable(n) {
   }
 }
 
+function previewPicture(url){
+  var preview = document.querySelector("#preview");
+  preview.src = url;
+}

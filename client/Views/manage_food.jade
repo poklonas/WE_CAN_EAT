@@ -1,0 +1,18 @@
+extends ./layout_admin.jade
+block title
+  title Manage Food
+  
+block content
+  p 
+    a(href='/') Home <a /> > Manage Food  
+  h1 ALL FOOD ARE
+  form(action='/add/food', method="post")
+    div.input
+      span.label FOOD NAME 
+      br
+      input(type="text", name="name")
+      input(type="submit", value="ADD")
+  each item in food
+    div
+      p #{item.Name} 
+        a(href='/delete/food/'+  '#{item.ID}') DELETE

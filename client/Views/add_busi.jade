@@ -1,4 +1,4 @@
-extends ./layout.jade
+extends ./layout_admin.jade
 
 block title
   title Add Business
@@ -12,34 +12,45 @@ block title
     }
 
 block navbar
-  a.right(onclick="showPositon()") 
+  a.right(onclick="changePos()") 
     img(src="https://png.icons8.com/ios/50/bdc3c7/define-location-filled.png")
     
 block content
   div.detail
     h1 Add Business
-    form(action='/add/busi', method="post")
-      div.input
-          span.label Business Name 
-          br
-          input(type="text", name="name", id="Bname")
-      div.input
-          span.label Pic NAME 
-          br
-          input(type="text", name="pic")
-      div.input
-          span.label Lat 
-          br
-          input(type="text", name="lat", id="inputLat", 
-                onkeypress="changeLat(this.value);")
-      div.input
-          span.label Lag 
-          br
-          input(type="text", name="lng", id="inputLng",
-                onkeypress="changeLng(this.value);")
-      div.actions
-          br
-          input(type="submit", value="ADD")
+    div.form
+      div.image
+        center
+          img(src="", id="preview")
+    div.form
+      form(action='/add/busi', method="post", id="addBUSI", enctype="multipart/form-data")
+        div.input
+            span.label Business Name 
+            br
+            input(type="text", name="name", id="Bname")
+        div.input
+            span.label Lat 
+            br
+            input(type="text", name="lat", id="inputLat", 
+                  onkeypress="changeLat(this.value);")
+        div.input
+            span.label Lag 
+            br
+            input(type="text", name="lng", id="inputLng",
+                  onkeypress="changeLng(this.value);")
+        div.input
+            span.label Type
+            br
+            select(name="type", form="addBUSI")
+              for item in TypeList
+                option(value="#{item.ID}") #{item._Type}    
+        div.input
+            span.label Picture URL
+            br
+            input(type="file", name="file", onchange="previewPicture(this.value)")
+        div.actions
+            br
+            input(type="submit", value="Add Business")
   div.map(id='location')
     h2 Location
     div(id="map")

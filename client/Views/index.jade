@@ -16,7 +16,7 @@ block navbar
 
 block content
   .filterbar
-    - var width = 90/TypeList.length
+    -var width = 90/TypeList.length
     button(onclick="showAll()")  All
     each item in TypeList
       button.type(onclick="filterMark(#{item.ID})" \
