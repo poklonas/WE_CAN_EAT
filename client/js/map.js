@@ -109,7 +109,7 @@ function showType(tid){
       markers[i].setMap(maps);
       var btn=document.getElementById("Type_"+tid)
       btn.style.color = 'white';
-      btn.style.backgroundColor = '#333';
+      btn.style.backgroundColor = '#444';
   }  
 }
 

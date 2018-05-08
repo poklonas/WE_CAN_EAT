@@ -14,7 +14,7 @@ block content
       th(onclick="sortTable(2)") Longitude
       th(onclick="sortTable(3)") Picture
       th(onclick="sortTable(4)") Type
-      th EDIT
+      th(onclick="sortTable(5)") EDIT
     each item in BUSIList
       tr
         td=item.Name
@@ -23,6 +23,6 @@ block content
         td=item.Picture
         td=item._Type
         td
-          form(action='/edit/busi/#{item.ID}', method="get")
+          form.one(action='/edit/busi/#{item.ID}', method="get")
             div.input
-              input(type="submit", value="EDIT")
+              input.button(type="submit", value="EDIT")

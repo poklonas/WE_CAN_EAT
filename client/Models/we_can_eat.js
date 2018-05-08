@@ -133,6 +133,25 @@ function getLastId(callback){
     });             
 }
 
+function update_business_name(callback, id, newName){
+    var query = "UPDATE Business \
+                 SET Name = '"+ newName +"' \
+                 WHERE ID = "+ id +";";
+    con.query( query, function (err, result) {
+        if (err) console.log(err);
+        callback();
+    });  
+}
+    
+function update_business_menu(callback, obj){
+    Object.keys(obj).forEach(function(key) {
+        var query = "UPDATE BUSI_FOOD \
+                   SET price = '"+ obj[key] +"' \
+                   WHERE ID = "+ key +";";
+        con.query( query, function (err, result) {if (err) console.log(err) });
+    });
+    callback();
+}
 
 var counter = 2;
 
@@ -144,11 +163,12 @@ module.exports = {
     getAllFood : getAllFood,
     getAllTypes : getAllTypes,
     getAllBusinessWithType : getAllBusinessWithType,
+    getLastId : getLastId,
     insertFood : insertFood,
     insertType : insertType,
     insertBusiType : insertBusiType,
     insertBusiness : insertBusiness,
     deleteFood : deleteFood,
-    getLastId : getLastId
+    update_business_name : update_business_name,
+    update_business_menu: update_business_menu,
 };
-

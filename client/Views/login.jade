@@ -1,20 +1,21 @@
 extends ./layout_admin.jade
 
 block content
-  h1 LOGIN 
   -if (message)
     #alert
       p= message
-  div
-    form(action='/admin/login', method="post")
-      div.input
-        span.label EMAIL
-            br
-            input(type="text", name="email")
-      div.input
-        span.label Password
-            br
-            input(type="text", name="password")
-      div.actions
-            br
-            input(type="submit", value="login")
+  center    
+    form(action='/admin/login', method="post").loginform
+      .imgcontainer
+        img.avatar(src='/pic/ad.png', alt='Avatar')
+      .container
+        label(for='email')
+          b Username
+        input(type='text', placeholder='Enter Username', name='email', required='')
+        label(for='password')
+          b Password
+        input(type='password', placeholder='Enter Password', name='password', required='')
+        input.button(type="submit", value="login") 
+      
+  
+  

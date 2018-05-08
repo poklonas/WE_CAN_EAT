@@ -1,6 +1,14 @@
 extends ./layout.jade
 block content
   h1 ALL FOOD ARE
+  table(id="SortTable")
+    tr
+      th(onclick="sortTable(0)") Name
     each item in food
       div
-        p #{item.Name} 
+        tr(onclick="window.location=  \
+      'https://what-we-eat-buntun.c9users.io/detail/"+item.FoodID+"'")
+        td=item.Name 
+      
+      
+      

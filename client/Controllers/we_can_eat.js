@@ -66,22 +66,6 @@ var mysql = require(path.resolve(__dirname, '../Models/we_can_eat.js'));
      });
   });
 
-  // create new type 
-  router.post('/add/type', function(req,res){
-    mysql.insertType(function(status){
-       console.log(status);
-       res.redirect('/');
-     }, req.body.name);
-  });
-  
-  // create new business Type relation ********* manul 
-  router.post('/add/busi_type', function(req,res){
-    mysql.insertBusiType(function(status){
-       console.log(status);
-       res.redirect('/');
-     }, req.body.bsID, req.body.typeID);
-  });
-
 };
 
 

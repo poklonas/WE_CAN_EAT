@@ -2,35 +2,38 @@ extends ./layout_admin.jade
 
 block title
   title #{BUSI[0].Name}
-
+  script(src='/js/popup.js')
+  
 block content
   p 
     a(href='/') Home <a /> >
     a(href='/manage/business') Manage Business <a /> > #{BUSI[0].Name}
   div.detail
-    h1 #{BUSI[0].Name}
-    input(type='text' value='#{BUSI[0].Name}')
-    p edit name
+    h1#busiName #{BUSI[0].Name}
+    p#nameEdit 
+      button(onclick="popupEditBusiName('busiName', 'update', '#{BUSI[0].ID}')") edit name
+      p#update
     center
       div.picture 
-        img(src='#{BUSI[0].Picture}')
+        img(src='#{BUSI[0].Picture}')#preview
       form(action='/', method="get")
         div.input
           input(type="file", name="file", onchange="previewPicture(this.value)")
         div.actions
           br
           input(type="submit", value="Update Picture")
-  center
     h2 Menu
       a(href='/add/menu') Add Menu
-    table(id="SortTable")
-      tr
-        th(onclick="sortTable(0)") Name
-        th(onclick="sortTable(1)") Price
-        td UNIT
-      each item in menu
+    form(action='/update/menu/#{BUSI[0].ID}', method="post", name='update_menu')
+      table(id="SortTable")
         tr
-          td=item.Name
-          td
-            input(type='text' value='#{item.price}')
-          td Bath
+          th(onclick="sortTable(0)") Name
+          th(onclick="sortTable(1)") Price
+          td UNIT
+        each item in menu
+          tr
+            td=item.Name
+            td
+              input(type='text' value='#{item.price}' name='price#{item.ID}' )
+            td Bath
+      input(type="submit", value="Update Menu")

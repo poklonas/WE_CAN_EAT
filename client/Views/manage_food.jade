@@ -1,6 +1,7 @@
 extends ./layout_admin.jade
 block title
   title Manage Food
+  script(src='/js/popup.js')
   
 block content
   p 
@@ -15,4 +16,5 @@ block content
   each item in food
     div
       p #{item.Name} 
-        a(href='/delete/food/'+  '#{item.ID}') DELETE
+        .button_food(onclick="popupConfirm('Do you want to delete Food Name : #{item.Name} ? '\
+                        ,'/delete/food/#{item.ID}', '/manage/food')") DELETE

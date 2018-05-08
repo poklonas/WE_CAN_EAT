@@ -5,19 +5,24 @@ html
     block title
       title Default title
     link(href='/css/just_test.css', rel='stylesheet')
+    link(href='/css/login.css', rel='stylesheet')
+    link(href='/css/food.css', rel='stylesheet')
     script(src="/js/script.js")
     body
         ul
          div.logo
            img(src='/pic/pizza.png')
            a(href='/') WE CAN EAT
-           button.button.button1 LOGOUT
+           a.button1(href='/admin/logout') Logout
      
       .navbar
           a(href='/') Home
           a(href='/manage/food') Manage Food
           a(href='/manage/business') Manage Business
-          a(href='/admin/logout') Logout for admin
+          
     
     div.content
+      -if (message)
+        #alert
+          p= message
       block content

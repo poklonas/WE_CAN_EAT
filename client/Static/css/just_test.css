@@ -1,5 +1,6 @@
 body {
     background-size: cover;
+    margin:0;
 }
 ul {
     list-style-type: none;
@@ -12,8 +13,8 @@ ul {
     position: fixed;
     left: 0;
     right: 0;
-    top: 68px;
-    overflow: hidden;
+    top:62px;
+    overflow: hidden; 
     background-color: #333; /*  #333*/
     font-family:Arial;
     z-index: 2;
@@ -30,9 +31,8 @@ ul {
 
 .navbar a.right {
     float: right;
-    font-size: 20px;
     color: white;
-    padding: 7px 7px;
+    padding: 4px 7px;
     text-decoration: none;
     font-weight:bold;
 }
@@ -41,52 +41,11 @@ ul {
     height: 40px;
     width: auto;
 }
-
-.dropdown {
-    float: left;
-    overflow: hidden;
-}
-.dropdown .dropbtn {
-    cursor: pointer;
-    font-size: 20px;    
-    border: none;
-    outline: none;
-    color: white;
-    padding: 15px 25px;
-    background-color: inherit;
-    font-family: Arial;
-    margin: 0;
-    font-weight:bold;
-}
 .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
     background-color: #fff;
     transition:0.5s;
     color:#111;
 }
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-.dropdown-content a {
-    float: none;
-    color: black;
-    padding: 25px 22px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    font-size: 20px;
-}
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-.show {
-    display: block;
-}
-
 .logo {
     position: fixed;
     top:0;
@@ -120,32 +79,28 @@ ul {
     width: 200px;
 }
 
-.button {
-    background-color: #4CAF50; /* Green */
+a.button1 {
+    background-color: red; /* Green  #4CAF50 inline-block*/
     border: none;
     color: white;
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 15px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
     float:right;
+    font-family:Arial;
+   
 }
-
-.button1 {
-    background-color: #1C1C1C; 
-    color: white; 
-    border: 3px solid #4CAF50;
-}
-
 .button1:hover {
-    background-color: #4CAF50;
+    background-color: #DF0101;
     color: white;
 }
+
 
 table {
     border-spacing: 0;
@@ -170,7 +125,7 @@ tr:nth-child(even) {
     border-spacing: 0;
     width: 100%;
     border: None;
-    background-color: #333;
+    background-color: #333; /*#BCF5A9  */
     color: #fff;
 }
 
@@ -181,7 +136,7 @@ tr:nth-child(even) {
     float: left;
     font-size: 15px;
     color: white;
-    background-color: #333;
+    background-color: #444;
     text-align: center;
     padding: 15px 25px;
     text-decoration: none;
@@ -192,16 +147,19 @@ tr:nth-child(even) {
 div.detail {
     width: 50%;
     float: left;
+    color:black;
+    text-align: center;
 }
 
 div.map {
     width: 50%;
     float: left;
+  
 }
 
 div.content{
     position: relative;
-    top: 120px;
+    top: 100px;
 }
 
 div.form{
@@ -222,5 +180,13 @@ div.form div.image img{
     max-height: 400px;
 }
 
+img{
+    width:300px;
+}
+
+b.text{
+    font-size:45px;
+    font-family: Impact;
+}
 
 
