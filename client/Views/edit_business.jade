@@ -23,7 +23,7 @@ block content
           br
           input(type="submit", value="Update Picture")
     h2 Menu
-      a(href='/add/menu') Add Menu
+      a(href='/add/menu/#{BUSI[0].ID}') Add Menu
     form(action='/update/menu/#{BUSI[0].ID}', method="post", name='update_menu')
       table(id="SortTable")
         tr

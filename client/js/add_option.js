@@ -3,9 +3,10 @@
 function addSelectedFood(){
   var showList = document.getElementById("selectedF");
   var selectChoice = document.getElementById("Selected");
-  var foodID = selectChoice.getAttribute("value");
+  var foodID = selectChoice.options[selectChoice.selectedIndex].value;
   var strUser = selectChoice.options[selectChoice.selectedIndex].text;
-  var str = "<input type='text' name='name' id="+foodID+" value = "+strUser+"></input> \
+  var str = "<input type='text' name='name' id="+foodID+" value = "+strUser+" readonly></input> \
+             <input type='hidden' name='id' id=hid_"+foodID+" value = "+foodID+" readonly></input> \
              <input type='text' name='price' id=price_"+foodID+" value = "+0+"></input> \
              <button id=button_"+foodID+" type=button onclick=deleteSelectedFood("+foodID+")>DELETE</button>\
              <br id=br_"+foodID+">"
@@ -19,8 +20,10 @@ function deleteSelectedFood(foodID){
   var input = document.getElementById(foodID);
   var br = document.getElementById("br_"+foodID);
   var price = document.getElementById("price_"+foodID);
+  var hid = document.getElementById("hid_"+foodID);
   input.parentNode.removeChild(input);
   button.parentNode.removeChild(button);
   br.parentNode.removeChild(br);
   price.parentNode.removeChild(price);
+  hid.parentNode.removeChild(hid);
 }

@@ -104,13 +104,30 @@ var passport = require('passport');
     
   });
   
-  router.get('/add/menu', isLoggedIn(), function(req,res){
+  router.get('/add/menu/:busiID', isLoggedIn(), function(req,res){
+    var id = req.params.busiID;
      mysql.getAllFood(function(val1){
        var data = {};
        data.food = val1;
+       data.inf = id;
        res.render('add_menu.jade', data);
      });
   });
+  
+  router.post('/add/menu/:busiID', isLoggedIn(), function(req,res){
+    var id = req.params.busiID;
+    mysql.insertMenu(function(){
+      mysql.getSpecificBusiness(function(val1){
+        mysql.getAllFoodIn(function(val2){
+          var data = {};
+          data.BUSI = val1;
+          data.menu = val2;       
+          res.render('edit_business.jade', data);
+        }, id);
+      }, id);
+     }, req.body, id);
+  });
+
   
   router.get('/edit/busi/:bsID', isLoggedIn(), function(req,res){
       var id = req.params.bsID;

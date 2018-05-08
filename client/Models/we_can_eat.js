@@ -114,7 +114,17 @@ function insertBusiType(callback, bsID, typeID){
         if (err) console.log(err);
         callback("Success");
     });
-}
+} 
+
+function insertMenu(callback, obj, id){
+    var len = obj["id"].length;
+    for (var i = 0; i < len; i++) { 
+        var query = "INSERT INTO BUSI_FOOD (BusinessID,FoodID,price) \
+                     VALUES ('"+id+"','"+obj["id"][i]+"','"+obj["price"][i]+"');"; 
+        con.query( query, function (err, result) {if (err) console.log(err) });
+    }
+    callback();
+} 
 
 
 function deleteFood(callback, id){
@@ -166,6 +176,7 @@ module.exports = {
     getLastId : getLastId,
     insertFood : insertFood,
     insertType : insertType,
+    insertMenu : insertMenu,
     insertBusiType : insertBusiType,
     insertBusiness : insertBusiness,
     deleteFood : deleteFood,
