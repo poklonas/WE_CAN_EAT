@@ -3,7 +3,6 @@ extends ./layout.jade
 block title
   title Home page
   script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZnZZrP9Dcq5WiodTFYbXFRMc-pY9DNqo&callback=initMap")
-  script(src="/js/geolocation-marker.js")
   style(type="text/css").
     #map {
       
@@ -12,7 +11,7 @@ block title
     }
     
 block navbar
-  a.right(onclick="showPositon()") 
+  a.right(onclick="getMyPosition()") 
     img(src="https://png.icons8.com/ios/50/bdc3c7/define-location-filled.png")
 
 block content
@@ -33,6 +32,8 @@ block content
       var TypeList = !{JSON.stringify(TypeList)};
       maps = initMap()
       initMarker()
+      
+  a(href="https://icons8.com" id="i") Icon pack by Icons8
   script.
     // $(function() {
     //   $(&quot;#sign-in-with-twitter&quot;).on(&quot;click&quot;, function() {

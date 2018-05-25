@@ -51,6 +51,23 @@ var passport = require('passport');
        res.redirect('/manage/food');
      }, id);
   });
+  
+  router.get('/delete/business/:id', isLoggedIn(), function(req,res){
+    var id = req.params.id;
+    mysql.deleteBusiness(function(status){
+       req.flash['FoodManage'] = "Delete Business Success";
+       res.redirect('/manage/business');
+     }, id);
+  });
+  
+  router.get('/delete/foodBusiness/:bsID/:id', isLoggedIn(), function(req,res){
+    var id = req.params.id;
+    var bsID = req.params.bsID;
+    mysql.deleteFoodBusiness(function(status){
+       req.flash['FoodManage'] = "Delete Business Success";
+       res.redirect('/edit/busi/'+bsID);
+     }, id);
+  });
 
   router.post('/add/food', isLoggedIn(), function(req,res){
     var name = req.body.name
@@ -72,15 +89,15 @@ var passport = require('passport');
 
   router.post('/add/busi', isLoggedIn(), function(req,res){
     var busiName = req.body.name;
-    if (fs.existsSync(path.resolve(__dirname, '../Static/pic/'+busiName+'.png'))){
+    if (fs.existsSync(path.resolve(__dirname, '../Static/pic/PicBusiness/'+busiName+'.png'))){
       req.flash['err'] = "you are alredy have this business name";
       res.redirect("/add/busi");
     }
     var tempPath = req.files.file.path
-    var targetPath = path.resolve(__dirname, '../Static/pic/'+busiName+'.png');
+    var targetPath = path.resolve(__dirname, '../Static/pic/PicBusiness/'+busiName+'.png');
     var obj = req.body;
-    obj.pic = '/pic/'+busiName+'.png';
-    if (path.extname(req.files.file.name).toLowerCase() === '.png') {
+    obj.pic = '/pic/PicBusiness/'+busiName+'.png';
+    if (path.extname(req.files.file.name).toLowerCase() === '.png' || path.extname(req.files.file.name).toLowerCase() === '.jpg') {
         fs.rename(tempPath, targetPath, function(err) {
             if (err) {
               req.flash['err'] = err;
@@ -89,15 +106,15 @@ var passport = require('passport');
             mysql.insertBusiness(function(status1){
               mysql.getLastId(function(val){
                 mysql.insertBusiType(function(status2){
-                res.redirect('/edit/busi/' +val[0].lastID);
-              }, val[0].lastID, obj)
+                  res.redirect('/edit/busi/'+val[0].lastID);
+              }, val[0].lastID, obj.type);
             });
           }, obj);
         });
     } else {
         fs.unlink(tempPath, function (err) {
             if (err) console.log(err);
-            req.flash['err'] = "only png file";
+            req.flash['err'] = "only png or jpg file";
             res.redirect("/add/busi");
         });
     }
@@ -153,6 +170,34 @@ var passport = require('passport');
     mysql.update_business_menu(function(result){
       res.redirect('/edit/busi/'+id);
     },req.body);
+  });
+  
+  router.post('/update/pic/:bsID', isLoggedIn(), function(req,res){
+    var id = req.params.bsID;
+    var tempPath = req.files.file.path;
+    var fileName = req.files.file.name;
+    var targetPath = path.resolve(__dirname, '../Static/pic/PicBusiness/'+fileName);
+    if (fs.existsSync(path.resolve(__dirname, targetPath))){
+      fs.unlinkSync(targetPath);
+    }
+    var pathNew = '/pic/PicBusiness/'+fileName;
+    if (path.extname(req.files.file.name).toLowerCase() === '.png' || path.extname(req.files.file.name).toLowerCase() === '.jpg') {
+        fs.rename(tempPath, targetPath, function(err) {
+            if (err) {
+              req.flash['err'] = err;
+              res.redirect("/edit/busi/'+id");
+            };
+            mysql.update_business_pic(function(status1){
+                res.redirect('/edit/busi/'+id);
+            }, id, pathNew);
+        });
+    } else {
+        fs.unlink(tempPath, function (err) {
+            if (err) console.log(err);
+            req.flash['err'] = "only png or jpg file";
+            res.redirect("/edit/busi/"+id);
+        });
+    }
   });
 
 

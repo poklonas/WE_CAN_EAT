@@ -26,3 +26,5 @@ con.connect(function(err) {
     });
     
 });
+
+//INSERT INTO User (Name,Email,Pswd)  VALUES ('admin','admin@mail.com',MD5(123456789));

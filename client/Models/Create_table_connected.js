@@ -55,8 +55,8 @@ con.connect(function(err) {
                     ID int primary key auto_increment ,
                     FoodID int ,
                     _TagID int,
-                    foreign key (FoodID) references FOOD(ID),
-                    foreign key (_TagID) references __Tag(ID)
+                    foreign key (FoodID) references FOOD(ID) ON DELETE CASCADE,
+                    foreign key (_TagID) references __Tag(ID) ON DELETE CASCADE
                 );`;
     con.query(sql, function (err, result) {
         if (err) console.log(err);
@@ -71,8 +71,8 @@ con.connect(function(err) {
                 BusinessID int ,
                 FoodID int,
                 price int,
-                foreign key (BusinessID) references Business(ID),
-                foreign key (FoodID) references FOOD(ID)
+                foreign key (BusinessID) references Business(ID) ON DELETE CASCADE,
+                foreign key (FoodID) references FOOD(ID) ON DELETE CASCADE
                 );`;
     con.query(sql, function (err, result) {
         if (err) console.log(err);
@@ -94,8 +94,8 @@ con.connect(function(err) {
                 ID int primary key auto_increment, 
                 BusinessID int , 
                 TypeID int ,
-                foreign key (BusinessID) references Business(ID),
-                foreign key (TypeID) references __Type(ID)
+                foreign key (BusinessID) references Business(ID) ON DELETE CASCADE,
+                foreign key (TypeID) references __Type(ID) ON DELETE CASCADE
                 );`;
     con.query(sql, function (err, result) {
         if (err) console.log(err);

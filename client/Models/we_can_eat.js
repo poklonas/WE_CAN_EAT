@@ -14,7 +14,7 @@ var con = mysql.createConnection({
 
 function getAllBusiness(callback){
     //var query = "SELECT * FROM Business";
-    var query = "SELECT *\
+    var query = "SELECT b.*, t._Type, t.ID as TypeID\
                   FROM Business as b \
                   INNER JOIN BUSI_Type as bt ON b.ID = bt.BusinessID \
                   INNER JOIN __Type as t ON bt.TypeID = t.ID";
@@ -41,7 +41,7 @@ function getSpecificBusiness(callback, bsID){
 }
 
 function getAllFoodIn (callback, bsID){
-    var query = "SELECT *\
+    var query = "SELECT bf.*, f.Name\
                  FROM BUSI_FOOD as bf \
                  INNER JOIN FOOD as f ON bf.FoodID = f.id \
                  and bf.BusinessID ="+ bsID + ";";
@@ -109,7 +109,7 @@ function insertType(callback, typeName){
 
 function insertBusiType(callback, bsID, typeID){
     var query = "INSERT INTO BUSI_Type (BusinessID, TypeID) \
-                 VALUES ("+bsID+","+typeID+");"; 
+                 VALUES ('"+bsID+"','"+typeID+"');"; 
     con.query( query, function (err, result) {
         if (err) console.log(err);
         callback("Success");
@@ -129,6 +129,22 @@ function insertMenu(callback, obj, id){
 
 function deleteFood(callback, id){
     var query = "DELETE FROM FOOD WHERE ID =" + id + ";"; 
+    con.query( query, function (err, result) {
+        if (err) console.log(err);
+        callback("Success");
+    });
+};
+
+function deleteBusiness(callback, id){
+    var query = "DELETE FROM Business WHERE ID =" + id + ";"; 
+    con.query( query, function (err, result) {
+        if (err) console.log(err);
+        callback("Success");
+    });
+};
+
+function deleteFoodBusiness(callback, id){
+    var query = "DELETE FROM BUSI_FOOD WHERE ID =" + id + ";"; 
     con.query( query, function (err, result) {
         if (err) console.log(err);
         callback("Success");
@@ -163,6 +179,16 @@ function update_business_menu(callback, obj){
     callback();
 }
 
+function update_business_pic(callback, id, path){
+    var query = "UPDATE Business \
+                 SET Picture = '"+ path +"' \
+                 WHERE ID = "+ id +";";
+    con.query( query, function (err, result) {
+        if (err) console.log(err);
+        callback();
+    });  
+}
+
 var counter = 2;
 
 module.exports = {
@@ -180,6 +206,9 @@ module.exports = {
     insertBusiType : insertBusiType,
     insertBusiness : insertBusiness,
     deleteFood : deleteFood,
+    deleteBusiness : deleteBusiness,
+    deleteFoodBusiness : deleteFoodBusiness,
     update_business_name : update_business_name,
     update_business_menu: update_business_menu,
+    update_business_pic : update_business_pic,
 };

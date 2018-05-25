@@ -52,7 +52,6 @@ var mysql = require(path.resolve(__dirname, '../Models/we_can_eat.js'));
      mysql.getAllBusiness(function(val1){
        var data = {};
        data.BUSIList = val1;
-       console.log(data);
        res.render('show_busi.jade', data);
      });
   });

@@ -11,8 +11,11 @@ block content
     tr
       th(onclick="sortTable(0)") Name
       th(onclick="sortTable(1)") Type
+      th Detail
     each item in BUSIList
-      tr(onclick="window.location=  \
-      'https://what-we-eat-buntun.c9users.io/detail/"+item.BusinessID+"'")
+      tr(onclick="window.location.replace( \
+      'https://what-we-eat-buntun.c9users.io/detail/#{item.ID}');")
         td=item.Name
         td=item._Type
+        td
+           a(href='/detail/'+item.ID) More Info <a />  

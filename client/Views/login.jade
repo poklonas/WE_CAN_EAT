@@ -1,9 +1,6 @@
 extends ./layout_admin.jade
 
 block content
-  -if (message)
-    #alert
-      p= message
   center    
     form(action='/admin/login', method="post").loginform
       .imgcontainer

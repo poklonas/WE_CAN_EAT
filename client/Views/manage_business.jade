@@ -1,6 +1,7 @@
 extends ./layout_admin.jade
 block title
   title Manage Business
+  script(src='/js/popup.js')
   
 block content
   p 
@@ -15,6 +16,7 @@ block content
       th(onclick="sortTable(3)") Picture
       th(onclick="sortTable(4)") Type
       th(onclick="sortTable(5)") EDIT
+      th(onclick="sortTable(6)") DELETE
     each item in BUSIList
       tr
         td=item.Name
@@ -26,3 +28,7 @@ block content
           form.one(action='/edit/busi/#{item.ID}', method="get")
             div.input
               input.button(type="submit", value="EDIT")
+        td
+          .button_food(onclick="popupConfirm('Do you want to delete Business Name : #{item.Name} ? '\
+                          ,'/delete/Business/#{item.ID}', '/manage/business')") DELETE
+          

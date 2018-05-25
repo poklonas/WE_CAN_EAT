@@ -1,60 +1,124 @@
-INSERT INTO FOOD(Name)
-	VALUES ("ราเมงหมูทงคัตสึ");
-INSERT INTO FOOD(Name)
-	VALUES ("ราเมงกุ้งเทมปุระ");
-INSERT INTO FOOD(Name)
-	VALUES ("แซลมอนเบนโตะ");
-INSERT INTO FOOD(Name)
-	VALUES ("เนื้อย่างชุดเล็ก");
-INSERT INTO FOOD(Name)
-	VALUES ("แซลมอนย่างชุดเล็ก");
-INSERT INTO FOOD(Name)
-	VALUES ("ข้าวปั้นชุดพิเศษ");
-INSERT INTO FOOD(Name)
-	VALUES ("แซลมอนเบนโตะ");
-INSERT INTO FOOD(Name)
-	VALUES ("ข้าวปั้นชุดA");
-INSERT INTO FOOD(Name)
-	VALUES ("ข้าวปั้นชุดB");
-INSERT INTO FOOD(Name)
-	VALUES ("sushi party set A");
-INSERT INTO FOOD(Name)
-	VALUES ("sushi party set B");
-INSERT INTO FOOD(Name)
-	VALUES ("เกี้ยวซ่า");
-INSERT INTO FOOD(Name)
-	VALUES ("ทาโกะยากิ");
-INSERT INTO FOOD(Name)
-	VALUES ("แซลมอนเบนโตะ");
-INSERT INTO FOOD(Name)
-	VALUES ("แซลมอนเบนโตะ");
-INSERT INTO FOOD(Name)
-	VALUES ("ยำสาหร่าย");
-INSERT INTO FOOD(Name)
-	VALUES ("ชาบูบุฟเฟ่ต์");
-INSERT INTO FOOD(Name)
-	VALUES ("เซ็ตสุดคุ้ม");
-INSERT INTO FOOD(Name)
-	VALUES ("บิงซู");
-INSERT INTO FOOD(Name)
-	VALUES ("หม้อไฟเกาหลี");
-INSERT INTO FOOD(Name)
-	VALUES ("hot coffee");
-INSERT INTO FOOD(Name)
-	VALUES ("cold coffee");
-INSERT INTO FOOD(Name)
-	VALUES ("hot coffee");
-INSERT INTO FOOD(Name)
-	VALUES ("ฮันนี่โทส");
-INSERT INTO FOOD(Name)
-	VALUES ("วาฟเฟิล");
-INSERT INTO FOOD(Name)
-	VALUES ("เค้กหน้านิ่ม");
-INSERT INTO FOOD(Name)
-	VALUES ("บิงซูโอวัลติน");
-INSERT INTO FOOD(Name)
-	VALUES ("สโคนเนยสด");
-INSERT INTO FOOD(Name)
-	VALUES ("brownie set");
-INSERT INTO FOOD(Name)
-	VALUES ("hot amerigano");
+INSERT INTO FOOD(Name)	VALUES ("ราเมงหมูทงคัตสึ");
+INSERT INTO FOOD(Name)	VALUES ("ราเมงกุ้งเทมปุระ");
+INSERT INTO FOOD(Name)	VALUES ("แซลมอนเบนโตะ");
+INSERT INTO FOOD(Name)	VALUES ("เนื้อย่างชุดเล็ก");
+INSERT INTO FOOD(Name)	VALUES ("แซลมอนย่างชุดเล็ก");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวปั้นชุดพิเศษ");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวปั้นชุดA");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวปั้นชุดB");
+INSERT INTO FOOD(Name)	VALUES ("sushi party set A");
+INSERT INTO FOOD(Name)	VALUES ("sushi party set B");
+INSERT INTO FOOD(Name)	VALUES ("เกี้ยวซ่า");
+INSERT INTO FOOD(Name)	VALUES ("ทาโกะยากิ");
+INSERT INTO FOOD(Name)	VALUES ("ยำสาหร่าย");
+INSERT INTO FOOD(Name)	VALUES ("ชาบูบุฟเฟ่ต์");
+INSERT INTO FOOD(Name)	VALUES ("เซ็ตสุดคุ้ม");
+INSERT INTO FOOD(Name)	VALUES ("บิงซู");
+INSERT INTO FOOD(Name)	VALUES ("หม้อไฟเกาหลี");
+INSERT INTO FOOD(Name)	VALUES ("hot coffee");
+INSERT INTO FOOD(Name)	VALUES ("cold coffee");
+INSERT INTO FOOD(Name)	VALUES ("hot coffee");
+INSERT INTO FOOD(Name)	VALUES ("ฮันนี่โทส");
+INSERT INTO FOOD(Name)	VALUES ("วาฟเฟิล");
+INSERT INTO FOOD(Name)	VALUES ("เค้กหน้านิ่ม");
+INSERT INTO FOOD(Name)	VALUES ("บิงซูโอวัลติน");
+INSERT INTO FOOD(Name)	VALUES ("สโคนเนยสด");
+INSERT INTO FOOD(Name)	VALUES ("brownie set");
+INSERT INTO FOOD(Name)	VALUES ("hot amerigano");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวไก่สองน่อง");
+INSERT INTO FOOD(Name)	VALUES ("ก๋๋วยเตี๋ยวไก่พิเศษน่อง");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวไก่น่อง");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวไก่พิเศษ");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวไก่ธรรมดา");
+INSERT INTO FOOD(Name)	VALUES ("เกาเหลาเนื้อน่อง");
+INSERT INTO FOOD(Name)	VALUES ("เกาเหลาเนื้อไก่");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวไข่เจียว");
+INSERT INTO FOOD(Name)	VALUES ("ต้มเลือดหมู-เกาเหลาเครื่องในหมู");
+INSERT INTO FOOD(Name)	VALUES ("เกาเหลาต้มยำ เย็นตาโฟต้มยำ");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวหมูน้ำใส");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวต้มยำ ");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวขาหมู");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวต้้มยำน้ำข้น");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวเรือหมูน้ำตก");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวขาหมู");
+INSERT INTO FOOD(Name)	VALUES ("น้ำปั่น");
+INSERT INTO FOOD(Name)	VALUES ("ปังเย็น");
+INSERT INTO FOOD(Name)	VALUES ("ชาแดง");
+INSERT INTO FOOD(Name)	VALUES ("น้ำมสดโชริ");
+INSERT INTO FOOD(Name)	VALUES ("ชานมไข่มุก");
+INSERT INTO FOOD(Name)	VALUES ("ชาเขียวนม");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวยำไก่แซ่บ");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวผัดกระเพรา");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวไข่เจียว");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์เนื้อ,ไก่");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์กุ้ง,ปลา");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์สเปเชียลเนื้อ,ไก่");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์สเปเชียลกุ้ง,ปลา");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์บิ๊กเนื้อ,ไก่");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์บิ๊ิ๊กกุ้ง,ปลา");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์บังเนื้อ,ไก่");
+INSERT INTO FOOD(Name)	VALUES ("เบอร์เกอร์บังกุ้ง,ปลา");
+INSERT INTO FOOD(Name)	VALUES ("ชูชิ 1 ชิ้น");
+INSERT INTO FOOD(Name)	VALUES ("อาหารตามสั่ง ธรรมดา");
+INSERT INTO FOOD(Name)	VALUES ("อาหารตามสั่ง พิเศษ");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยว ธรรมดา");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยว พิเศษ");
+INSERT INTO FOOD(Name)	VALUES ("ไอศกรีมโฮมเมด 1 scoop");
+INSERT INTO FOOD(Name)	VALUES ("ไอศกรีมโฮมเมด 2 scoop");
+INSERT INTO FOOD(Name)	VALUES ("ไอศกรีมโฮมเมด Waffle Bowl 2 scoop");
+INSERT INTO FOOD(Name)	VALUES ("เครป 1-2 ไส้ 20");
+INSERT INTO FOOD(Name)	VALUES ("เครปไส้นูเทลล่าอย่างเดียว");
+INSERT INTO FOOD(Name)	VALUES ("เครปไส้หมูสับอย่างเดียว");
+INSERT INTO FOOD(Name)	VALUES ("กาแฟเย็น");
+INSERT INTO FOOD(Name)	VALUES ("ชุดเมี่ยงปลาเผา");
+INSERT INTO FOOD(Name)	VALUES ("ลาบ/น้ำตก");
+INSERT INTO FOOD(Name)	VALUES ("ต้มแซ่บ");
+INSERT INTO FOOD(Name)	VALUES ("ยำซี้ด");
+INSERT INTO FOOD(Name)	VALUES ("ตำแซ่บ");
+INSERT INTO FOOD(Name)	VALUES ("ราดหน้าเส้นใหญ่หมูหมัก");
+INSERT INTO FOOD(Name)	VALUES ("ราดหน้าเส้นหมี่หมูหมัก");
+INSERT INTO FOOD(Name)	VALUES ("ราดหน้าหมี่กรอบหมูหมัก");
+INSERT INTO FOOD(Name)	VALUES ("ผัดซีอิ้วใส่ไข่");
+INSERT INTO FOOD(Name)	VALUES ("ราดหน้าทะเลรวมมิตร");
+INSERT INTO FOOD(Name)	VALUES ("โรตี");
+INSERT INTO FOOD(Name)	VALUES ("น้ำผัก-ผลไม้");
+INSERT INTO FOOD(Name)	VALUES ("ไก่สไปซี่");
+INSERT INTO FOOD(Name)	VALUES ("ไก่่นิวออลีนวิงค์");
+INSERT INTO FOOD(Name)	VALUES ("อาหารตามสั่ง");
+INSERT INTO FOOD(Name)VALUES ("เครื่องดื่ม-น้ำปั่น");
+INSERT INTO FOOD(Name	VALUES ("ขนมปังปิ้ง");
+INSERT INTO FOOD(Name)	VALUES ("IceCream");
+INSERT INTO FOOD(Name)	VALUES ("Toast");
+INSERT INTO FOOD(Name)	VALUES ("ปัังเย็นโกโก้");
+INSERT INTO FOOD(Name)	VALUES ("โฟลทนมสด");
+INSERT INTO FOOD(Name)	VALUES ("Coffee");
+INSERT INTO FOOD(Name)	VALUES ("Smoothies");
+INSERT INTO FOOD(Name)	VALUES ("อาหารตามสั่ง");
+INSERT INTO FOOD(Name)	VALUES ("เครื่องดื่ม-น้ำปั่น");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยว");
+INSERT INTO FOOD(Name)	VALUES ("หมูย่าง 1 ไม้");
+INSERT INTO FOOD(Name)	VALUES ("ไก่ยาง 1 ไม้");
+INSERT INTO FOOD(Name)	VALUES ("เนื้ื่อโคขุน 1 ไม้");
+INSERT INTO FOOD(Name)	VALUES ("ทาโกยากิ");
+INSERT INTO FOOD(Name)	VALUES ("เคบับไก่");
+INSERT INTO FOOD(Name)	VALUES ("ปังเย็น");
+INSERT INTO FOOD(Name)	VALUES ("ไอศกรีม");
+INSERT INTO FOOD(Name)	VALUES ("อาหารตามสั่ง");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวหมูน้ำตก ธรรมดา (ทานที่ร้าน)");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวหมูน้ำตก พิเศษ (ทานที่ร้าน)");
+INSERT INTO FOOD(Name)	VALUES ("เกาเหลา ธรรมดา (ทานที่ร้าน)");
+INSERT INTO FOOD(Name)	VALUES ("เกาเหลา พิเศษ (ทานที่ร้าน)");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวหมูน้ำตก ธรรมดา (กลับบ้าน)");
+INSERT INTO FOOD(Name)	VALUES ("ก๋วยเตี๋ยวหมูน้ำตก พิเศษ (กลับบ้าน)");
+INSERT INTO FOOD(Name)	VALUES ("เกาเหลา ธรรมดา (กลับบ้าน)");
+INSERT INTO FOOD(Name)	VALUES ("เกาเหลา พิเศษ (กลับบ้าน)");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวหน้าหมู+ไก่ทอดสไตล์เกาหลี 2 ชั้น");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวหน้าหมูผัดกิมจิ+ไก่ทอดสไตล์เกาหลี 2 ชั้น");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวหน้าเนื้อ+ไก่ทอดสไตล์เกาหลี 2 ชั้น");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวหน้าเนื้อผัดกิมจิ+ไก่ทอดสไตล์เกาหลี 2 ชั้น");
+INSERT INTO FOOD(Name)	VALUES ("ชุดหม้อไฟเกาหลีหมู+ไก่ทอดสไตล์เกาหลี 2 ชั้น");
+INSERT INTO FOOD(Name)	VALUES ("ชุดหม้อไฟเกาหลีเนื้อ+ไก่ทอดสไตล์เกาหลี 2 ชั้น");
+INSERT INTO FOOD(Name)	VALUES ("สปาเกตตี้");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวไก่กรอบยำแซ่บ");
+INSERT INTO FOOD(Name)	VALUES ("สเต็ก");
+INSERT INTO FOOD(Name)	VALUES ("ข้าวแกง");

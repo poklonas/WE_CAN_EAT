@@ -11,7 +11,7 @@ block content
       select(name="selectedFood", form="addBUSI", id="Selected") 
         for item in food
           option(value="#{item.ID}") #{item.Name}   
-      button(type="button", onclick="addSelectedFood()") add
+      button(type="button", onclick="addSelectedFood()") add to list
     div#selectedF
     div.input
-     input(type='submit' value='ADD')
+     input(type='submit' value='ADD TO THIS Business')

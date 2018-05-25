@@ -3,16 +3,31 @@ function initMap(){
   return maps
 }
 
-function showPositon(){
-  var GeoMarker = new GeolocationMarker();
-  google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function() {
-    maps.panTo(this.getPosition());
-    maps.fitBounds(this.getBounds());
-    maps.setZoom(18);
+var markpos = null;
+function getMyPosition(){
+  navigator.geolocation.getCurrentPosition(function(position) {  
+    var pos = {lat: position.coords.latitude,
+				lng: position.coords.longitude}
+    markpos = new google.maps.Marker({
+      position: pos,
+      map: maps,
+      icon: "https://png.icons8.com/metro/40/000000/walking.png"
+    });
+    // document.getElementById("i").text = "#fff";
+    maps.panTo(pos);
+    window.scroll(0,0);
+    setTimeout(updateMyPosition, 5000);
   });
-  GeoMarker.setMap(maps);
-  window.scroll(0,0);
 }
+
+function updateMyPosition(){
+  navigator.geolocation.getCurrentPosition(function(position) {  
+    var pos = {lat: position.coords.latitude,
+				lng: position.coords.longitude}
+    markpos.setPosition(pos);
+  });
+}
+
 
 var icon = {
     url: "/pic/icon-buffet-1.png", // url
@@ -33,16 +48,18 @@ function initMarker() {
       icon: icon,
       title: BUSIList[i].Name});
     markers.push(marker);
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-      return function() {
-    		infowindow.setContent('<div class="picture">'+BUSIList[i].Name+'<br>\
-    		                <img src='+BUSIList[i].Picture+'>\
-    		                <a href=https://what-we-eat-buntun.c9users.io/detail/'+BUSIList[i].BusinessID+'>detail</a>\
-    		                </div>');
-    		infowindow.open(maps, marker);
-    		maps.panTo({lat: Number(BUSIList[i].Latitude), lng: Number(BUSIList[i].Longitude)}); 
-    	}
-    })(marker, i));
+    if (document.title == "Home page"){
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+      		infowindow.setContent('<div class="picture">'+BUSIList[i].Name+'<br>\
+      		                <img src='+BUSIList[i].Picture+'>\
+      		                <a href=https://what-we-eat-buntun.c9users.io/detail/'+BUSIList[i].ID+'>detail</a>\
+      		                </div>');
+      		infowindow.open(maps, marker);
+      		maps.panTo({lat: Number(BUSIList[i].Latitude), lng: Number(BUSIList[i].Longitude)}); 
+      	}
+      })(marker, i));
+    }
   }
 }
 

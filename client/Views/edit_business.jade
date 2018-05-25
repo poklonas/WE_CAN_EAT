@@ -10,18 +10,17 @@ block content
     a(href='/manage/business') Manage Business <a /> > #{BUSI[0].Name}
   div.detail
     h1#busiName #{BUSI[0].Name}
-    p#nameEdit 
-      button(onclick="popupEditBusiName('busiName', 'update', '#{BUSI[0].ID}')") edit name
-      p#update
+    p#nameEdit
+      center
+        .button_food(onclick="popupEditBusiName('busiName', 'update', '#{BUSI[0].ID}')") edit name
+        p#update
     center
       div.picture 
         img(src='#{BUSI[0].Picture}')#preview
-      form(action='/', method="get")
+      form(action='/update/pic/#{BUSI[0].ID}', method="post", enctype="multipart/form-data")
         div.input
           input(type="file", name="file", onchange="previewPicture(this.value)")
-        div.actions
-          br
-          input(type="submit", value="Update Picture")
+          input(type="submit" value="update")
     h2 Menu
       a(href='/add/menu/#{BUSI[0].ID}') Add Menu
     form(action='/update/menu/#{BUSI[0].ID}', method="post", name='update_menu')
@@ -30,10 +29,14 @@ block content
           th(onclick="sortTable(0)") Name
           th(onclick="sortTable(1)") Price
           td UNIT
+          td Delete
         each item in menu
           tr
             td=item.Name
             td
-              input(type='text' value='#{item.price}' name='price#{item.ID}' )
+              input(type='text' value='#{item.price}' name='#{item.ID}' )
             td Bath
+            td
+              .button_food(onclick="popupConfirm('Do you want to delete Food Name : #{item.Name} ? '\
+                        ,'/delete/foodBusiness/#{BUSI[0].ID}/#{item.ID}', '/edit/busi/#{BUSI[0].ID}')") DELETE
       input(type="submit", value="Update Menu")
